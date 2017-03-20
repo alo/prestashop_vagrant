@@ -11,8 +11,8 @@ sudo apt-get install -y unzip
 sudo apt-get install -y apache2 libapache2-mod-php5
 
 ## MySQL and PHP
-echo "mysql-server-5.5 mysql-server/root_password password abc123" | sudo debconf-set-selections
-echo "mysql-server-5.5 mysql-server/root_password_again password abc123" | sudo debconf-set-selections
+echo "mysql-server-5.5 mysql-server/root_password password admin" | sudo debconf-set-selections
+echo "mysql-server-5.5 mysql-server/root_password_again password admin" | sudo debconf-set-selections
 sudo apt-get install -y mysql-server php5-mysql
 sudo apt-get install -y php5 php5-mcrypt
 
@@ -29,7 +29,7 @@ unzip -o $PS_VERSION
 sudo rm ./$PS_VERSION
 
 ## Create a database
-mysql -uroot -pabc123 -e 'create database prestashop'
+mysql -uroot -padmin -e 'create database prestashop'
 
 ## Restart Apache to get config changes
 sudo apachectl -k restart
